@@ -1,8 +1,48 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-const App = () => (
-    <div>
-        <h1>Hello world!!</h1>
-    </div>
-)
-ReactDOM.render(<App />, document.getElementById('root'));
+import './app.css';
+
+const Header = () => {
+    return (
+        <header>
+            <h1>Scoreboard</h1>
+            <span className="stats">Players: 1</span>
+        </header>
+    );
+}
+const Player = () => {
+    return (
+        <div className="player">
+            <span className="player-name">
+                Luke
+        </span>
+            <Counter />
+        </div>
+
+    );
+}
+
+const Counter = () => {
+    return (
+        <div className="counter">
+            <button className="counter-action decrement"> - </button>
+            <span className="counter-score">35</span>
+            <button className="counter-action increment"> + </button>
+        </div>
+    );
+}
+
+const App = () => {
+    return (
+        <div className="scoreboard">
+            <Header />
+            { /*  Players list!*/}
+            <Player />
+        </div>
+    )
+}
+
+ReactDOM.render(
+    <App />,
+    document.getElementById('root')
+);
