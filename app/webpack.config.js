@@ -12,7 +12,12 @@ module.exports = {
             exclude: /node_modules/,
             test: /\.js$/,
             loader: 'babel-loader'
-        }]
+        },
+        {
+            test: /\.css$/,
+            use: ['style-loader', 'css-loader']
+        }
+        ]
     },
     plugins: [
         new hwp({ template: path.join(__dirname, '/src/index.html') })
