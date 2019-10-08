@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './app.css';
 
+let score = 0;
 const players = [
     {
         name: "Guil",
@@ -46,20 +47,38 @@ const Player = (props) => {
     );
 }
 
-class Counter extends React.Component { //turn the component into a class.
+class Counter extends React.Component {
 
     constructor() {
         super() //calls the constructor
         this.state = { //must be called "state"
             score: 0
         };
+    };
+
+    incrementScore = () => {  //if using an arrow function, no need to BIND the items later
+        this.setState({
+            score: this.state.score + 1
+        });
+        // console.log(this);
     }
+
+    decreaseScore() {
+        this.setState({
+            score: this.state.score - 1
+        });
+    }
+
     render() {
         return (
             <div className="counter" >
-                <button className="counter-action decrement"> - </button>
-                <span className="counter-score">{this.state.score}</span>
-                <button className="counter-action increment"> + </button>
+                <button className="counter-action decrement" onClick={() => this.decreaseScore}> - </button>
+
+                <span className="counter-score">{this.state.score} </span>
+
+                <button className="counter-action increment" onClick={() => this.incrementScore()}> + </button>
+                {/* Notice how there is no "" above */}
+                {/* "this" will point to the counter component instacne */}
             </div>
         );
     }
