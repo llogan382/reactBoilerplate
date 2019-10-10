@@ -3,28 +3,7 @@ import ReactDOM from 'react-dom';
 import './app.css';
 
 let score = 0;
-const players = [
-    {
-        name: "Guil",
-        score: 50,
-        id: 1
-    },
-    {
-        name: "Treasure",
-        score: 85,
-        id: 2
-    },
-    {
-        name: "Ashley",
-        score: 95,
-        id: 3
-    },
-    {
-        name: "James",
-        score: 80,
-        id: 4
-    }
-];
+
 
 const Header = (props) => {
     return (
@@ -39,6 +18,9 @@ const Player = (props) => {
     return (
         <div className="player">
             <span className="player-name">
+                <button className="remove-player" onClick={() => {
+                    props.removePlayer(props.id)
+                }}>x</button>
                 {props.name}
             </span>
 
@@ -47,64 +29,108 @@ const Player = (props) => {
     );
 }
 
+
 class Counter extends React.Component {
 
-    constructor() {
+    constructor() { //wraps around what is being passed in
         super() //calls the constructor
         this.state = { //must be called "state"
             score: 0
         };
     };
 
-    incrementScore = () => {  //if using an arrow function, no need to BIND the items later
-        this.setState({
-            score: this.state.score + 1
+    incrementScore() {  //if using an arrow function, no need to BIND the items later
+        console.log(this.state);
+        this.setState(prevState => { //setState takes a callback function that references the previous state
+            return {
+                score: prevState.score + 1
+            };
         });
         // console.log(this);
     }
 
     decreaseScore() {
-        this.setState({
-            score: this.state.score - 1
+        this.setState(prevState => {
+            return {
+                score: prevState.score - 1
+            };
         });
     }
 
     render() {
         return (
             <div className="counter" >
-                <button className="counter-action decrement" onClick={() => this.decreaseScore}> - </button>
+                <button className="counter-action decrement" onClick={() => this.decreaseScore()}> - </button>
 
                 <span className="counter-score">{this.state.score} </span>
-
                 <button className="counter-action increment" onClick={() => this.incrementScore()}> + </button>
                 {/* Notice how there is no "" above */}
                 {/* "this" will point to the counter component instacne */}
             </div>
         );
     }
-
 }
 
-const App = (props) => {
-    return (
-        <div className="scoreboard">
-            <Header
-                title="Scoreboard"
-                totalPlayers={props.initialPlayers.length}
-            />
+class App extends React.Component {
 
-            {/* Players list */}
-            {props.initialPlayers.map(player =>
-                <Player
-                    name={player.name}
-                    key={player.id.toString()}
+    constructor() {
+        super() //calls the constructor
+        this.state = { //must be called "state"
+            players: [
+                {
+                    name: "Guil",
+                    id: 1
+                },
+                {
+                    name: "Treasure",
+                    id: 2
+                },
+                {
+                    name: "Ashley",
+                    id: 3
+                },
+                {
+                    name: "James",
+                    id: 4
+                }
+            ]
+        }
+    };
+
+    handleRemovePlayer() { //this function is used later via interaction with the player component
+        console.log(this.state);
+
+        this.setState(prevState => {
+            return {
+                players: prevState.players.filter(p => p.id !== id)
+            };
+        });
+    }
+
+    render() {
+        return (
+            <div className="scoreboard">
+                <Header
+                    title="Scoreboard"
+                    totalPlayers={this.state.players.length}
                 />
-            )}
-        </div>
-    );
+
+                {/* Players list */}
+                {this.state.players.map(player =>
+                    <Player
+                        name={player.name}
+                        id={player.id}
+                        key={player.id.toString()}
+                        removePlayer={(this.handleRemovePlayer)}
+                    />
+                )}
+            </div>
+        );
+    }
 }
+
 
 ReactDOM.render( //if props or state change, React updates the render method
-    <App initialPlayers={players} />,
+    <App />,
     document.getElementById('root')
 );
