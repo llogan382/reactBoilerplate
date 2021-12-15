@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-awsdefaultnextconfig-dev-124634-authRole",
+      "UnauthRoleArn": "arn:aws:iam::536327525881:role/amplify-awsdefaultnextconfig-dev-124634-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::536327525881:role/amplify-awsdefaultnextconfig-dev-124634-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-awsdefaultnextconfig-dev-124634-deployment",
+      "UnauthRoleName": "amplify-awsdefaultnextconfig-dev-124634-unauthRole",
+      "StackName": "amplify-awsdefaultnextconfig-dev-124634",
+      "StackId": "arn:aws:cloudformation:us-east-1:536327525881:stack/amplify-awsdefaultnextconfig-dev-124634/f4b520c0-5dce-11ec-a846-121caef2b6eb",
+      "AmplifyAppId": "d24opvuepyisbq"
+    }
+  }
+}

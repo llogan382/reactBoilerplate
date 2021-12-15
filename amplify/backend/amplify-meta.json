@@ -1,0 +1,37 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-awsdefaultnextconfig-dev-124634-authRole",
+      "UnauthRoleArn": "arn:aws:iam::536327525881:role/amplify-awsdefaultnextconfig-dev-124634-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::536327525881:role/amplify-awsdefaultnextconfig-dev-124634-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-awsdefaultnextconfig-dev-124634-deployment",
+      "UnauthRoleName": "amplify-awsdefaultnextconfig-dev-124634-unauthRole",
+      "StackName": "amplify-awsdefaultnextconfig-dev-124634",
+      "StackId": "arn:aws:cloudformation:us-east-1:536327525881:stack/amplify-awsdefaultnextconfig-dev-124634/f4b520c0-5dce-11ec-a846-121caef2b6eb",
+      "AmplifyAppId": "d24opvuepyisbq"
+    }
+  },
+  "hosting": {
+    "S3AndCloudFront": {
+      "service": "S3AndCloudFront",
+      "providerPlugin": "awscloudformation",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-awsdefaultnextconfig-dev-124634-deployment/amplify-cfn-templates/hosting/template.json",
+        "logicalId": "hostingS3AndCloudFront"
+      },
+      "lastPushTimeStamp": "2021-12-15T17:56:18.589Z",
+      "output": {
+        "CloudFrontSecureURL": "https://d1r563a2io3i2a.cloudfront.net",
+        "S3BucketSecureURL": "https://awsdefaultnextconfig-20211215125143-hostingbucket-dev.s3.amazonaws.com",
+        "CloudFrontOriginAccessIdentity": "E14ZN5FTRV9WPX",
+        "WebsiteURL": "http://awsdefaultnextconfig-20211215125143-hostingbucket-dev.s3-website-us-east-1.amazonaws.com",
+        "CloudFrontDistributionID": "E2J3NI84S9I7DR",
+        "Region": "us-east-1",
+        "HostingBucketName": "awsdefaultnextconfig-20211215125143-hostingbucket-dev",
+        "CloudFrontDomainName": "d1r563a2io3i2a.cloudfront.net"
+      },
+      "lastPushDirHash": "lJ9z5LERANApfzsYeuQ1jKqhXSw="
+    }
+  }
+}
